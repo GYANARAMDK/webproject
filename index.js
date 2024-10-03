@@ -19,7 +19,7 @@ app.get('/',(req,res)=>{
 
 app.use('/api/auth',authrouter);
 app.use('/api/product',productrouter);
-app.use('/api/order',orderrouter);
+app.use('/api/auth/order',orderrouter);
 
 
 

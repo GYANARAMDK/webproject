@@ -1,7 +1,7 @@
-const Order=require('../models/ordermodel');
+const Order=require('../models/ordermodel.js');
 
-
-const orderhandler=  async (req,res)=>{
+const User=require('../models/usermodel.js')
+const orderhandlerpost=  async (req,res)=>{
     
    try {
     const neworder= new Order({
@@ -14,6 +14,14 @@ const orderhandler=  async (req,res)=>{
    
     
     const savedorder= await neworder.save();
+  
+   
+    const updatedUser= await User.findByIdAndUpdate(req.body.userid,{
+        $push:{orders:savedorder._id}},
+        {new:true}
+    )
+    
+    
     res.json({savedorder});
 
    } catch (error) {
@@ -22,4 +30,4 @@ const orderhandler=  async (req,res)=>{
    }
 }
 
-module.exports=orderhandler;
+module.exports=orderhandlerpost;
