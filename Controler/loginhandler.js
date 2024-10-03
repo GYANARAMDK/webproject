@@ -11,8 +11,8 @@ const loginhandler= async (req,res)=>{
        const dpass=CryptoJS.AES.decrypt(User1.password,process.env.SECRET_KEY).toString(CryptoJS.enc.Utf8)
        dpass !== req.body.password && res.json({message:"invalid password"})
        const {passwrod ,...rest}=User1._doc;
-       const accesstoken=jwt.sign({username:User1.name},process.env.TOKEN_KEY)
-       res.json({accesstoken});
+       const accesstoken=jwt.sign({id:User1._id},process.env.TOKEN_KEY)
+       res.json({...rest,accesstoken});
        
     } catch (error) {
        res.json(error);

@@ -7,7 +7,7 @@ const cors=require('cors')
 const authrouter=require('./Rotes/authrouter.js')
 const productrouter=require('./Rotes/productrouter.js')
 const orderrouter=require('./Rotes/orderrouter.js')
-
+const veryfyauth=require('./middleware/verifymeddleware.js')
 const app=express();
 dotenv.config();
 app.use(cors());
