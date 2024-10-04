@@ -30,7 +30,7 @@ mongoose.connect(databseurl)
 
 
 
-mongoose.connection.once(open,()=>{
+mongoose.connection.once("open",()=>{
     console.log('database connected successfully')
     app.listen(3000,()=>{
         console.log("sever created ");
