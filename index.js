@@ -24,7 +24,7 @@ app.get('/',(req,res)=>{
 app.use('/api/auth',authrouter);
 app.use('/api/products',productrouter);
 app.use('/api/auth/order',orderrouter);
-app.use('/api/product',singleproductrouter)
+app.use('/api/product/:productid',singleproductrouter)
 
 
 
